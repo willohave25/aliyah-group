@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez ALIYAH GROUP à Abidjan et Paris. Fret, BTP, location - Réponse rapide et service professionnel">
+    <title>Contact - ALIYAH GROUP</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="index.html" class="logo">
+                        <img src="images/aliyah-logo.png" alt="ALIYAH GROUP Logo">
+                    </a>
+                    
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html" class="nav-link">Accueil</a></li>
+                        <li><a href="about.html" class="nav-link">À Propos</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="fret.html">Fret Aérien & Maritime</a></li>
+                                <li><a href="btp.html">BTP</a></li>
+                                <li><a href="location.html">Location Résidences & Véhicules</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                        <li><a href="devis.html" class="nav-link btn-devis">Demander un Devis</a></li>
+                    </ul>
+                    
+                    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <h1 class="page-title">Contactez-Nous</h1>
+            <p class="page-subtitle">Nous sommes à votre écoute</p>
+        </div>
+    </section>
+
+    <section class="contact-section section-padding">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info-side">
+                    <h2>Nos Coordonnées</h2>
+                    
+                    <div class="contact-info-block">
+                        <h3>📍 Abidjan, Côte d'Ivoire</h3>
+                        <p>
+                            Rue 21, Avenue 13 Lot 199<br>
+                            Treichville, Abidjan 225<br>
+                            Côte d'Ivoire
+                        </p>
+                    </div>
+                    
+                    <div class="contact-info-block">
+                        <h3>📍 Paris, France</h3>
+                        <p>
+                            8 avenue Francis de Pressencé<br>
+                            93300 Aubervilliers<br>
+                            France
+                        </p>
+                    </div>
+                    
+                    <div class="contact-info-block">
+                        <h3>📧 Email</h3>
+                        <p>
+                            <a href="mailto:contact@aliyahgroup.com">contact@aliyahgroup.com</a><br>
+                            <a href="mailto:info@aliyahgroup.com">info@aliyahgroup.com</a>
+                        </p>
+                    </div>
+                    
+                    <div class="contact-info-block">
+                        <h3>📞 Téléphone</h3>
+                        <p>
+                            <strong>Abidjan:</strong> +225 XX XX XX XX XX<br>
+                            <strong>Paris:</strong> +33 X XX XX XX XX
+                        </p>
+                    </div>
+                    
+                    <div class="contact-info-block">
+                        <h3>🕐 Horaires d'Ouverture</h3>
+                        <p>
+                            Lundi - Vendredi: 8h00 - 18h00<br>
+                            Samedi: 9h00 - 13h00<br>
+                            Dimanche: Fermé
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-side">
+                    <h2>Envoyez-nous un Message</h2>
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nom Complet *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Concerné</label>
+                            <select id="service" name="service">
+                                <option value="">-- Sélectionnez un service --</option>
+                                <option value="fret">Fret Aérien & Maritime</option>
+                                <option value="btp">BTP & Construction</option>
+                                <option value="location-residence">Location de Résidence</option>
+                                <option value="location-vehicule">Location de Véhicule</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Objet *</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Envoyer le Message</button>
+                        
+                        <p class="form-note">* Champs obligatoires</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container-fluid">
+            <h2 class="section-title text-center">Notre Localisation à Abidjan</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.3!2d-4.0!3d5.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMTgnMDAuMCJOIDTCsDAyJzAwLjAiVw!5e0!3m2!1sfr!2sci!4v1234567890" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <p class="text-center map-note">
+                <strong>Adresse:</strong> Rue 21, Avenue 13 Lot 199, Treichville, Abidjan 225, Côte d'Ivoire
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4 class="footer-title">ALIYAH GROUP</h4>
+                        <p class="footer-text">
+                            Votre partenaire multi-services à Abidjan pour le fret international, 
+                            le BTP et la location de résidences et véhicules.
+                        </p>
+                        <div class="footer-logo">
+                            <img src="images/aliyah-logo.png" alt="ALIYAH GROUP">
+                        </div>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4 class="footer-title">Nos Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="fret.html">Fret Aérien & Maritime</a></li>
+                            <li><a href="btp.html">BTP & Construction</a></li>
+                            <li><a href="location.html">Location Résidences</a></li>
+                            <li><a href="location.html#vehicules">Location Véhicules</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4 class="footer-title">Liens Rapides</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html">À Propos</a></li>
+                            <li><a href="devis.html">Demander un Devis</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="mentions-legales.html">Mentions Légales</a></li>
+                            <li><a href="cgv.html">CGV</a></li>
+                            <li><a href="confidentialite.html">Confidentialité</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4 class="footer-title">Contact</h4>
+                        <ul class="footer-contact">
+                            <li>
+                                <strong>Abidjan:</strong><br>
+                                Rue 21, Avenue 13 Lot 199<br>
+                                Treichville, Abidjan 225
+                            </li>
+                            <li>
+                                <strong>Paris:</strong><br>
+                                8 avenue Francis de Pressencé<br>
+                                93300 Aubervilliers
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 ALIYAH GROUP - SARL au capital 1 000 000 FRS CFA - RCCM 2404011J</p>
+                    <p class="footer-credit">Propulsé par <a href="https://w2k-digital.com" target="_blank">W2K-DIGITAL</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
