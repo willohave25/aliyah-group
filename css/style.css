@@ -1150,3 +1150,89 @@ input, textarea, select {
 .legal-text a:hover {
     color: var(--color-primary-dark);
 }
+/* ========================================
+   TESTIMONIALS SECTION - AVIS CLIENTS
+   ======================================== */
+.testimonials-section {
+    background-color: var(--color-gray-lightest);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.testimonial-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.testimonial-stars {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.2rem;
+}
+
+.testimonial-stars .star {
+    display: inline-block;
+    animation: starPulse 2s ease-in-out infinite;
+    animation-delay: calc(var(--star-index) * 0.1s);
+}
+
+.testimonial-stars .star:nth-child(1) { --star-index: 0; }
+.testimonial-stars .star:nth-child(2) { --star-index: 1; }
+.testimonial-stars .star:nth-child(3) { --star-index: 2; }
+.testimonial-stars .star:nth-child(4) { --star-index: 3; }
+.testimonial-stars .star:nth-child(5) { --star-index: 4; }
+
+@keyframes starPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+.testimonial-text {
+    color: var(--color-gray);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    padding-top: var(--spacing-md);
+    border-top: 2px solid var(--color-gray-lighter);
+}
+
+.testimonial-author strong {
+    color: var(--color-gray-dark);
+    font-size: 1.1rem;
+}
+
+.testimonial-location {
+    color: var(--color-gray);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
