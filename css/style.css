@@ -1236,3 +1236,391 @@ input, textarea, select {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* ========================================
+   ICÔNES SERVICES
+   ======================================== */
+.service-icon-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .service-icon-img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* ========================================
+   TÉMOIGNAGES - PHOTOS
+   ======================================== */
+.testimonial-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: var(--spacing-sm);
+    display: block;
+}
+
+/* ========================================
+   RÉSEAUX SOCIAUX FOOTER
+   ======================================== */
+.footer-social {
+    margin-top: var(--spacing-lg);
+}
+
+.footer-social h5 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.social-icons a {
+    display: block;
+    transition: transform var(--transition-normal);
+}
+
+.social-icons a:hover {
+    transform: translateY(-4px);
+}
+
+.social-icons img {
+    width: 32px;
+    height: 32px;
+}
+
+/* ========================================
+   SLIDESHOW FRET
+   ======================================== */
+.fret-slideshow-section {
+    position: relative;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.slideshow-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slideshow-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(45, 122, 62, 0.40) 0%, rgba(31, 90, 45, 0.50) 100%);
+    z-index: 1;
+}
+
+.slideshow-content {
+    position: relative;
+    z-index: 2;
+    padding: var(--spacing-xxl) 0;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.slideshow-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.slideshow-content p {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xl);
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.fret-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-white);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--color-white);
+    margin-top: var(--spacing-xs);
+}
+
+@media (max-width: 768px) {
+    .slideshow-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+/* ========================================
+   CTA OVERLAY (BTP)
+   ======================================== */
+.cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* ========================================
+   ACTUALITÉS
+   ======================================== */
+.actualites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.actualite-card {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+}
+
+.actualite-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.actualite-image,
+.actualite-video {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.actualite-content {
+    padding: var(--spacing-lg);
+}
+
+.actualite-type {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.actualite-title {
+    font-size: 1.25rem;
+    color: var(--color-gray-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.actualite-description {
+    color: var(--color-gray);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.actualite-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-gray-lighter);
+}
+
+.actualite-date {
+    color: var(--color-gray);
+    font-size: 0.875rem;
+}
+
+.no-actualites,
+.loading {
+    text-align: center;
+    color: var(--color-gray);
+    padding: var(--spacing-xxl);
+    font-size: 1.1rem;
+}
+
+/* ========================================
+   PRICING (Marketing Digital)
+   ======================================== */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.pricing-card {
+    background: var(--color-white);
+    padding: var(--spacing-xxl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.pricing-card.featured {
+    border: 3px solid var(--color-primary);
+    transform: scale(1.05);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-gray-dark);
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--spacing-xl);
+}
+
+.pricing-features li {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-gray-lighter);
+}
+
+.pricing-note {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    color: var(--color-gray);
+    font-size: 0.875rem;
+}
+
+/* ========================================
+   TECHNOLOGIES (Marketing Digital)
+   ======================================== */
+.tech-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.tech-category {
+    background: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.tech-category h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.tech-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tech-category li {
+    padding: var(--spacing-sm) 0;
+    color: var(--color-gray);
+    position: relative;
+    padding-left: var(--spacing-md);
+}
+
+.tech-category li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* ========================================
+   AUTO-SCROLL TOGGLE
+   ======================================== */
+.toggle-autoscroll {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    z-index: 999;
+    transition: all var(--transition-normal);
+}
+
+.toggle-autoscroll:hover {
+    transform: scale(1.1);
+}
