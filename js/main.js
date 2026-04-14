@@ -301,58 +301,73 @@
     }
 
     // ============================================
-    // AUTO-SCROLL LENT ET CONTINU
+    // AUTO-SCROLL VITRINE W2K
+    // Défile page par page en boucle (mode salle d'attente)
     // ============================================
-    let autoScrollEnabled = true;
-    let autoScrollInterval;
-    const SCROLL_SPEED = 0.5; // pixels par frame (lent)
+    var VITRINE_PAGES = [
+        'index.html',
+        'about.html',
+        'fret.html',
+        'btp.html',
+        'location.html',
+        'marketing-digital.html',
+        'actualites.html',
+        'contact.html'
+    ];
+
+    var SCROLL_SPEED  = 0.5;  // px par frame
+    var PAUSE_DELAY   = 30000; // 30s de pause après interaction
+    var PAGE_HOLD     = 1200;  // ms de pause en bas avant de changer de page
+
+    var autoScrollEnabled = true;
+    var autoScrollInterval;
+    var navigating = false;
+    var resumeTimeout;
+
+    function getCurrentPageIndex() {
+        var filename = window.location.pathname.split('/').pop() || 'index.html';
+        if (filename === '' || filename === '/') filename = 'index.html';
+        var idx = VITRINE_PAGES.indexOf(filename);
+        return idx === -1 ? 0 : idx;
+    }
+
+    function goToNextPage() {
+        var next = (getCurrentPageIndex() + 1) % VITRINE_PAGES.length;
+        window.location.href = VITRINE_PAGES[next];
+    }
 
     function startAutoScroll() {
         if (autoScrollInterval) clearInterval(autoScrollInterval);
 
         autoScrollInterval = setInterval(function() {
-            if (!autoScrollEnabled) return;
+            if (!autoScrollEnabled || navigating) return;
 
-            const scrollBottom = window.scrollY + window.innerHeight;
-            const docHeight = document.documentElement.scrollHeight;
+            var scrollBottom = window.scrollY + window.innerHeight;
+            var docHeight    = document.documentElement.scrollHeight;
 
             if (scrollBottom >= docHeight - 5) {
-                // En bas de la page : remonter en haut en douceur
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                navigating = true;
+                setTimeout(goToNextPage, PAGE_HOLD);
             } else {
                 window.scrollBy(0, SCROLL_SPEED);
             }
         }, 30);
     }
 
-    // Pause sur interaction utilisateur, reprise automatique après 30s
-    let resumeTimeout;
+    // Pause sur interaction, reprise après 30s
     function pauseAutoScroll() {
         autoScrollEnabled = false;
         clearTimeout(resumeTimeout);
         resumeTimeout = setTimeout(function() {
             autoScrollEnabled = true;
-        }, 30000);
+        }, PAUSE_DELAY);
     }
 
-    // Détecter l'interaction utilisateur
     ['click', 'touchstart', 'keydown', 'mousedown'].forEach(function(evt) {
         document.addEventListener(evt, pauseAutoScroll, { passive: true });
     });
 
-    // Bouton toggle
-    const toggleBtn = document.getElementById('toggleAutoScroll');
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', function() {
-            autoScrollEnabled = !autoScrollEnabled;
-            this.querySelector('.icon').textContent = autoScrollEnabled ? '⏸️' : '▶️';
-            if (!autoScrollEnabled) {
-                clearTimeout(resumeTimeout);
-            }
-        });
-    }
-
-    // Démarrer l'auto-scroll 3 secondes après le chargement
+    // Démarrer 3s après chargement
     window.addEventListener('load', function() {
         setTimeout(startAutoScroll, 3000);
     });
