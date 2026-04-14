@@ -277,4 +277,83 @@
     console.log('%c🚀 Site ALIYAH GROUP chargé avec succès!', 'color: #2d7a3e; font-size: 16px; font-weight: bold;');
     console.log('%cCréé par W2K-DIGITAL - https://w2k-digital.com', 'color: #4a5568; font-size: 12px;');
 
+    // ============================================
+    // SLIDESHOW FRET
+    // ============================================
+    function initFretSlideshow() {
+        const slides = document.querySelectorAll('.fret-slideshow-section .slide');
+        if (slides.length === 0) return;
+
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 5000);
+    }
+
+    if (document.querySelector('.fret-slideshow-section')) {
+        initFretSlideshow();
+    }
+
+    // ============================================
+    // AUTO-SCROLL LENT ET CONTINU
+    // ============================================
+    let autoScrollEnabled = true;
+    let autoScrollInterval;
+    const SCROLL_SPEED = 0.5; // pixels par frame (lent)
+
+    function startAutoScroll() {
+        if (autoScrollInterval) clearInterval(autoScrollInterval);
+
+        autoScrollInterval = setInterval(function() {
+            if (!autoScrollEnabled) return;
+
+            const scrollBottom = window.scrollY + window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+
+            if (scrollBottom >= docHeight - 5) {
+                // En bas de la page : remonter en haut en douceur
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                window.scrollBy(0, SCROLL_SPEED);
+            }
+        }, 30);
+    }
+
+    // Pause sur interaction utilisateur, reprise automatique après 30s
+    let resumeTimeout;
+    function pauseAutoScroll() {
+        autoScrollEnabled = false;
+        clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(function() {
+            autoScrollEnabled = true;
+        }, 30000);
+    }
+
+    // Détecter l'interaction utilisateur
+    ['click', 'touchstart', 'keydown', 'mousedown'].forEach(function(evt) {
+        document.addEventListener(evt, pauseAutoScroll, { passive: true });
+    });
+
+    // Bouton toggle
+    const toggleBtn = document.getElementById('toggleAutoScroll');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+            autoScrollEnabled = !autoScrollEnabled;
+            this.querySelector('.icon').textContent = autoScrollEnabled ? '⏸️' : '▶️';
+            if (!autoScrollEnabled) {
+                clearTimeout(resumeTimeout);
+            }
+        });
+    }
+
+    // Démarrer l'auto-scroll 3 secondes après le chargement
+    window.addEventListener('load', function() {
+        setTimeout(startAutoScroll, 3000);
+    });
+
 })();
