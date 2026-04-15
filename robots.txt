@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Bloquer le panneau admin
+Disallow: /admin-actualites/
+
+Sitemap: https://www.aliyah-group.com/sitemap.xml
