@@ -4,4 +4,4 @@ Allow: /
 # Bloquer le panneau admin
 Disallow: /admin-actualites/
 
-Sitemap: https://www.aliyah-group.com/sitemap.xml
+Sitemap: https://aliyah-group.com/sitemap.xml
